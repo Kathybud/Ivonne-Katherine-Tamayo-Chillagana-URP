@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Escala : MonoBehaviour
 {
-    public float scale = .01f;
+   
 
 
     // Start is called before the first frame update
@@ -17,7 +17,11 @@ public class Escala : MonoBehaviour
     void Update()
     {
 
-        transform.localScale = transform.localScale + new Vector3(0, scale * Time.deltaTime, 0);
+        transform.localScale = new Vector3 (Random.Range (0.1f,1.0f), 1, Random.Range (0.1f, 1.0f));
+
+
+    
+    
 
 
     }
