@@ -9,28 +9,36 @@ public class Boingboingquesigue : MonoBehaviour
 
     public LayerMask capadelJugador;
     public Transform Jugador;
+    public float Velocidad;
 
     bool estarAlerta;
+  
 
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    // Physics 
     void Update()
     {
         estarAlerta = Physics.CheckSphere(transform.position, RangodeVision, capadelJugador);
 
         if (estarAlerta == true)
         {
-            transform.LookAt(Jugador);
+            // Era ejemplo trucho pero dale que si funciona, transform.LookAt(Jugador);
+
+            transform.LookAt(new Vector3(Jugador.position.x, transform.position.y, Jugador.position.z));
+
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(Jugador.position.x, transform.position.y, Jugador.position.z), Velocidad * Time.deltaTime);
         }
     }
 
+
+
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, RangodeVision);
     }
 }
