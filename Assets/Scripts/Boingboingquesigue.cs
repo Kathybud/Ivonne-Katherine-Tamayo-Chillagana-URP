@@ -34,7 +34,7 @@ public class Boingboingquesigue : MonoBehaviour
         }
     }
 
-
+    //colorcitos
 
     private void OnDrawGizmos()
     {
