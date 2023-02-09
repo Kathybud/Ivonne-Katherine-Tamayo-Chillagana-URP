@@ -15,7 +15,7 @@ public class ahorasitesigue : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    // me re mama que dos lineas resuman mi dolor de 48
     void Update()
     {
         nav.SetDestination(target.position);
