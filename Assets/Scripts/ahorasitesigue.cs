@@ -15,7 +15,7 @@ public class ahorasitesigue : MonoBehaviour
 
     }
 
-    // me re mama que dos lineas resuman mi dolor de 48
+    // me re mama que dos lineas resuman mi dolor de 40
     void Update()
     {
         nav.SetDestination(target.position);
