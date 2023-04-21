@@ -14,6 +14,6 @@ public class mapache_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(-90, 0, 0);
+        transform.Rotate(-45, 0, 0);
     }
 }
