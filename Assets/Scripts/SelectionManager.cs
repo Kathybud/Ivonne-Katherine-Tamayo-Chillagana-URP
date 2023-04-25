@@ -21,16 +21,20 @@ public class SelectionManager : MonoBehaviour
         {
             var selectionTransform = hit.transform;
 
-            if (selectionTransform.GetComponent<InteractableObject>()) //los corchetes de pico llamam a otro script
+            if (selectionTransform.GetComponent<InteractableObject>())              //los corchetes de pico llamam a otro script
             {
                 interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
                 interaction_Info_UI.SetActive(true);
             }
-            else
+            else //si hay un golpe, pero sin el Interactable Script
             {
                 interaction_Info_UI.SetActive(false);
             }
 
+        }
+        else     //no hay golpe unu
+        {
+            interaction_Info_UI.SetActive(false);
         }
     }
 }
