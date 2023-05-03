@@ -14,14 +14,12 @@ public class InteractableObject : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.E)&& playerInRange)
+        if (Input.GetKey(KeyCode.E) && playerInRange)
         {
-            Debug.Log("item added to inventory");
+            Debug.Log("Se añadio al inventario");
 
             Destroy(gameObject);
         }
-
-
     }
 
 

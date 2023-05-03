@@ -37,7 +37,9 @@ public class InventorySystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.I) && isOpen)
         {
-            InventoryScreenUI.SetActive
+            InventoryScreenUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            isOpen = false;
         }
     }
 }
