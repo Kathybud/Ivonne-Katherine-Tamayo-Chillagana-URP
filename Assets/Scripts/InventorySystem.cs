@@ -32,6 +32,7 @@ public class InventorySystem : MonoBehaviour
         {
             Debug.Log("i esta pulsada");
             InventoryScreenUI.SetActive(true);
+
             Cursor.lockState = CursorLockMode.None;
             isOpen = true;
         }
