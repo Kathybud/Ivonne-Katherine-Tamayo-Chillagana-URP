@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CorrutinaSeguimiento : MonoBehaviour
 {
@@ -89,9 +90,65 @@ public class CorrutinaSeguimiento : MonoBehaviour
             chasing = true;
             walking = false;
             idle = false;
-            ai.ResetTrigger("idle");
-            ai.ResetTrigger("walk");
-            ai.SetTrigger("run");
+            aiAnim.ResetTrigger("idle");
+            aiAnim.ResetTrigger("walk");
+            aiAnim.SetTrigger("run");
+
+            StartCoroutine("chase");
+            StartCoroutine("chase");
+        }
+    }
+
+    IEnumerator chase()
+    {
+        yield return new WaitForSeconds(chaseTime);
+        chasing = false;
+        walking = true;
+
+        aiAnim.ResetTrigger("idle");
+        aiAnim.ResetTrigger("run");
+        aiAnim.SetTrigger("walk");
+
+        aiAnim.SetTrigger("walk");
+
+        if (randNum == 0)
+        {
+            dest = randDest1.position;
+        }
+
+        if (randNum == 1)
+        {
+            dest = randDest2.position;
+        }
+
+        if (randNum == 2)
+        {
+            dest = randDest3.position;
+        }
+
+        if (randNum == 3)
+        {
+            dest = randDest4.position;
+        }
+
+        if (randNum == 4)
+        {
+            dest = randDest5.position;
+        }
+
+        if (randNum == 5)
+        {
+            dest = randDest6.position;
+        }
+
+        if (randNum == 6)
+        {
+            dest = randDest7.position;
+        }
+
+        if (randNum == 7)
+        {
+            dest = randDest8.position;
         }
     }
 }
