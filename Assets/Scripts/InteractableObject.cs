@@ -16,9 +16,17 @@ public class InteractableObject : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E) && playerInRange)
         {
-            Debug.Log("Se añadio al inventario");
+            //Si NO eta lleno
+            if (!InventorySystem.instance.CheckIfFull())
+            {
+                InventorySystem.instance.AddToInventory(ItemName);
 
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log("Inventario llenito unu");
+            }
         }
     }
 
@@ -29,7 +37,6 @@ public class InteractableObject : MonoBehaviour
         {
             playerInRange = true;
         }
-
     }
 
     private void OnTriggerExit(Collider other)
