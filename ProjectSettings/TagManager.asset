@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mapache
   - destination
+  - slot
   layers:
   - Default
   - TransparentFX
