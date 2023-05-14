@@ -5,54 +5,34 @@ using UnityEngine.UI;
 
 public class timer : MonoBehaviour
 {
-    public Text timerTxt;
-    public Button startTimerBtn;
-    public Button stopTimerBtn;
-    IEnumerator _timerCR;
+    public float timeValue = 90;
+    public Text timerText;
 
-    void Awake()
+    //Update is called once per frame
+    void Update()
     {
-        startTimerBtn.onClick.AddListener(StartTimerClick);
-        stopTimerBtn.onClick.AddListener(StopTimerClick);
-        ResetTimer();
-    }
-
-    #region button clicks
-    void StartTimerClick()
-    {
-        _timerCR = StartTimer();
-        StartCoroutine(_timerCR);
-    }
-
-    void StopTimerClick()
-    {
-        if (_timerCR != null)
+        if (timeValue > 0)
         {
-            StopCoroutine(_timerCR);
-            _timerCR = null;
+            timeValue -= Time.deltaTime;
         }
-        ResetTimer();
-    }
-    #endregion
-
-    #region start/reset timer
-    IEnumerator StartTimer(int timeRemaining = 10)
-    {
-        startTimerBtn.interactable = false;
-        stopTimerBtn.interactable = true;
-        for (int i = timeRemaining; i > 0; i--)
+        else
         {
-            timerTxt.text = i.ToString("00");
-            yield return new WaitForSeconds(1);
+            timeValue = 0;
         }
-        ResetTimer();
+
+        DisplayTime(timeValue);
     }
 
-    void ResetTimer()
+    void DisplayTime(float timeToDisplay)
     {
-        startTimerBtn.interactable = true;
-        stopTimerBtn.interactable = false;
-        timerTxt.text = "00";
+        if (timeToDisplay < 0)
+        {
+            timeToDisplay = 0;
+        }
+
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
-    #endregion
 }
