@@ -8,7 +8,7 @@ public class destinationTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("mapache"))
+        if(other.CompareTag("Mapache"))
         {
             StartCoroutine(reEnable());
             collision.enabled = false;
